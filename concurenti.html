@@ -1,0 +1,272 @@
+<html lang="en" >
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+
+
+    <link rel="stylesheet" href="css/angular-material.min.css">
+
+
+    <meta http-equiv="Content-type" content="text/html; charset=UTF-8"/>
+
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-material-design.css">
+    <link rel="stylesheet" type="text/css" href="css/ripples.min.css">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/mdb.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+
+
+    <link rel="icon" href="img/logo.png">
+    <title>Concurenți - Olimpiada Lectura ca Abilitate de Viață</title>
+    
+  </head>
+  <body ng-app="BlankApp" ng-cloak>
+    <div id="wrap">
+      <img id="header" src="img/header.jpg"/>
+      <nav class="navbar default-color" id="nv">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
+            <span class="sr-only"><b>Toggle navigation</b></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand waves-effect waves-light" href="index.html">OLAV</a>
+          </div>
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+            <ul class="nav navbar-nav">
+              <li><a href="comisie.html" class="waves-effect waves-light">COMISIE NAȚIONALĂ</a></li>
+              <li><a href="organizatori.html" class="waves-effect waves-light"> ORGANIZATORI</a></li>
+              <li><a href="concurenti.html" class="waves-effect waves-light"> CONCURENȚI</a></li>
+              <li><a href="invitati.html" class="waves-effect waves-light">INVITAȚI SPECIALI</a></li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle waves-effect waves-light" data-toggle="dropdown" role="button" aria-expanded="false"> DESFĂȘURARE<span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li><a href="program.html">PROGRAM</a></li>
+                  <li><a href="cazare.html">CAZARE</a></li>
+                  <li><a href="masa.html">MASA</a></li>
+                  <li><a href="transport.html">TRANSPORT</a></li>
+                  <li><a href="informatii.html">INFORMAȚII UTILE</a>
+                  <li><a href="locatie.html">LOCAȚIE CONCURS</a></li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle waves-effect waves-light" data-toggle="dropdown" role="button" aria-expanded="false">PAGINA CONCURENTULUI<span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li><a href="regulament.html">REGULAMENT</a></li>
+                  <li><a href="subiecte.html">SUBIECTE</a></li>
+                  <li><a href="barem.html">BAREM</a></li>
+                  <li><a href="rezultate.html">REZULTATE</a></li>
+                </ul>
+              </li>
+              <li><a href="sponsori.html" class="waves-effect waves-light"> SPONSORI</a></li>
+              <li><a href="suvenir.html" class="waves-effect waves-light">SUVENIR ELECTRONIC</a></li>
+
+              <li><a href="https://olav2016revista.wordpress.com/" class="waves-effect waves-light"> REVISTA</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+
+<div id="main-container" >
+  <div  id="main-column" >
+  <div ng-controller="main"  style="   background: #ffffff!important;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23); padding: 10px;padding-right: 0px;width: 99%;">
+         <div>
+                 <h5>Cautare dupa:</h5>
+
+          <md-input-container class="md-block" style="width: 24%;float:left;">
+            <label>Nume</label>
+            <input ng-model="nume">
+          </md-input-container>
+          <md-input-container class="md-block" style="width: 24%;float:left;">
+            <label>Nivel</label>
+            <input ng-model="nivel">
+          </md-input-container>
+          <md-input-container class="md-block" style="width: 24%;float:left;">
+            <label>Scoala</label>
+            <input ng-model="scoala">
+          </md-input-container>
+          <md-input-container class="md-block" style="width: 24%;float:left;">
+            <label>Județul</label>
+            <input ng-model="localitatea">
+          </md-input-container>
+          </div>
+      <table class="highlight responsive-table z-depth-2" style="width:90% ;margin-left:auto;margin-right: auto;">
+        
+
+        <tbody >
+        <tr style="border-bottom:3px solid grey !important;">
+            <td>Număr Concurent</td>
+            <td>Numele prenumele elevului</td>
+            <td>Nivel</td>
+            <td>Unitatea scolară</td>
+            <td>Județul</td><br/>
+        </tr>
+          <tr ng-repeat="x in names | filter:{ name: nume, level:nivel,loc:localitatea,unit:scoala} ">
+            <td>{{x.id}}</td>
+            <td>{{x.name}}</td>
+            <td>{{x.level}}</td>
+            <td>{{x.unit}}</td>
+            <td>{{x.loc}}</td>
+          </tr>
+        </tbody>
+      </table>
+  </div>
+  </div>
+    <div  id="secondary-column"  >
+         <img src="img/poster.jpg" width="100%" class="links">
+         <div class="links">
+          <md-button class="md-primary md-raised " ng-href="program.html">PROGRAM</md-button>
+        </div><div class="links">
+          <md-button class="md-raised md-primary" ng-href="
+https://www.facebook.com/OLAV-Olimpiada-de-Lectur%C4%83-Lectura-ca-Abilitate-de-Via%C8%9B%C4%83-sec%C8%9Biunea-LICEU-161241160722038/?fref=ts" target="_blank"><svg style="width:30px;height:30px;position: relative;top:7px;" viewBox="0 0 24 24">
+    <path fill="#000000" d="M17,2V2H17V6H15C14.31,6 14,6.81 14,7.5V10H14L17,10V14H14V22H10V14H7V10H10V6A4,4 0 0,1 14,2H17Z" />
+</svg>PAGINA FACEBOOK</md-button>
+        </div><div class="links">
+          <md-button class="md-primary " ng-href="http://olav.cnlr.ro/" style="font-size: 1.7em;" target="_blank">Tradiţia OLAV<br><img src="img/logo_integrat1.png" width="70%;"></md-button></div><div class="links">
+          
+
+
+         </div>
+  </div>
+
+</div>
+
+  <script src="js/angular.min.js"></script>
+  <script src="js/angular-animate.min.js"></script>
+  <script src="js/angular-aria.min.js"></script>
+  <script src="js/angular-messages.min.js"></script>
+  <script src="js/angular-material.min.js"></script>
+  <script type="text/javascript">    
+    var app = angular.module('BlankApp', ['ngMaterial']);
+    app.controller("main",function($scope){
+
+      $scope.names=[{"id":1,"name":"Balea Bianca","level":"Elev de nivelul 3","unit":"Colegiul Naţional Militar 'Mihai Viteazul' Alba Iulia","loc":"AB"},
+{"id":2,"name":"Rotaru Liana Maria","level":"Elev de nivelul 4","unit":"Colegiul Național 'Inochentie Micu Clain' Blaj","loc":"AB"},
+{"id":3,"name":"Bostinaru Lavinia Nicoleta","level":"Elev de nivelul 4","unit":"Liceul Teoretic 'Iulia Zamfirescu' Mioveni","loc":"AG"},
+{"id":4,"name":"Iorgulescu Delia","level":"Elev de nivelul 3","unit":"Colegiul Naţional 'Ion C Bratianu' Pitesti","loc":"AG"},
+{"id":5,"name":"Filipaş Nicoleta","level":"Elev de nivelul 4","unit":"Colegiul Naţional 'Moise Nicoară' Arad","loc":"AR"},
+{"id":6,"name":"Șchiopu Ștefania","level":"Elev de nivelul 3","unit":"Liceul Teologic Baptist 'Alexa Popovici'  Arad","loc":"AR"},
+{"id":7,"name":"Andrei Cosmina","level":"Elev de nivelul 3","unit":"Colegiul Naţional Bilingv 'George Coşbuc'","loc":"B"},
+{"id":8,"name":"Barb Andreea","level":"Elev de nivelul 4","unit":"Colegiul Romano-Catolic 'Sf. Iosif'","loc":"B"},
+{"id":9,"name":"Bădeu Andreea","level":"Elev de nivelul 4","unit":"Colegiul Naţional Bilingv 'George Coşbuc'","loc":"B"},
+{"id":10,"name":"Bîrsan Maria","level":"Elev de nivelul 4","unit":"Colegiul Naţional 'Sf. Sava'","loc":"B"},
+{"id":11,"name":"Bogdea Maria Gabriela","level":"Elev de nivelul 3","unit":"Colegiul Naţional'Grigore Moisil'","loc":"B"},
+{"id":12,"name":"Bortoi Maria","level":"Elev de nivelul 3","unit":"Colegiul Naţional'Gheorghe Lazăr'","loc":"B"},
+{"id":13,"name":"Cojocaru Victor","level":"Elev de nivelul 4","unit":"Colegiul Naţional 'Mihai Viteazul'","loc":"B"},
+{"id":14,"name":"Crivăţ Maria Irina","level":"Elev de nivelul 3","unit":"Colegiul Naţional ' Gheorghe Lazăr'","loc":"B"},
+{"id":15,"name":"Florea Bianca","level":"Elev de nivelul 3","unit":"Colegiul Naţional'Sf. Sava'","loc":"B"},
+{"id":16,"name":"Jurj Tudoran Maria","level":"Elev de nivelul 4","unit":"Colegiul Naţional 'Sf. Sava'","loc":"B"},
+{"id":17,"name":"Matei Ruxandra","level":"Elev de nivelul 4","unit":"Colegiul Naţional 'Ion Creangă'","loc":"B"},
+{"id":18,"name":"Sperlea Diana Maria","level":"Elev de nivelul 3","unit":"Colegiul Naţional 'Gheorghe Lazăr'","loc":"B"},
+{"id":19,"name":"Stanciu Andreea Sabina","level":"Elev de nivelul 4","unit":"Colegiul Naţional 'Gheorghe Lazăr'","loc":"B"},
+{"id":20,"name":"Şendroiu Tania","level":"Elev de nivelul 3","unit":"Colegiul Naţional'Mihai Viteazul'","loc":"B"},
+{"id":21,"name":"Ganea Diana Elena","level":"Elev de nivelul 3","unit":"Colegiul Naţional ' Dimitrie Cantemir' Onesti","loc":"BC"},
+{"id":22,"name":"Pintilie Bianca Dumitrita","level":"Elev de nivelul 4","unit":"Liceul Teoretic ' Spiru Haret' Moinesti","loc":"BC"},
+{"id":23,"name":"Moisa D. Oana Miruna","level":"Elev de nivelul 3","unit":"Colegiul Naţional'Emanuil Gojdu', Oradea","loc":"BH"},
+{"id":24,"name":"Vancea O. Andreea Alexandra","level":"Elev de nivelul 4","unit":"Liceul Teoretic  'C-Tin Şerban' Aleşd","loc":"BH"},
+{"id":25,"name":"Cilean Alexandra Elena","level":"Elev de nivelul 3","unit":"Colegiul Național Liviu Rebreanu Bistrița","loc":"BN"},
+{"id":26,"name":"Pop Ioan Alina","level":"Elev de nivelul 4","unit":"Colegiul Național George Coșbuc Năsăud","loc":"BN"},
+{"id":27,"name":"Bran Maria Alexandra","level":"Elev de nivelul 3","unit":"Colegiul Naţional 'Gheorghe Munteanu Murgoci' Brăila","loc":"BR"},
+{"id":28,"name":"Țigănoiu Ciprian Nicolae","level":"Elev de nivelul 4","unit":"Colegiul Naţional 'Gheorghe Munteanu Murgoci' Brăila","loc":"BR"},
+{"id":29,"name":"Calancea Ioana-Maria","level":"Elev de nivelul 4","unit":"Liceul 'Regina Maria' Dorohoi","loc":"BT"},
+{"id":30,"name":"Mirăuţă Naomi","level":"Elev de nivelul 3","unit":"Colegiul Naţional 'Grigore Ghica' Dorohoi","loc":"BT"},
+{"id":31,"name":"Berușcă Alina","level":"Elev de nivelul 4","unit":"Colegiul Național 'Dr. Ioan Mețota', Brașov","loc":"BV"},
+{"id":32,"name":"Șerbănuț Ioana","level":"Elev de nivelul 3","unit":"Colegiul Național 'Andrei Șaguna', Brașov","loc":"BV"},
+{"id":33,"name":"Banu C. Sorina Gabriela","level":"Elev de nivelul 4","unit":"Colegiul Național 'Bogdan Petriceicu Hașdeu'","loc":"BZ"},
+{"id":34,"name":"Oprea I. Diana Gabriela","level":"Elev de nivelul 3","unit":"Colegiul Național 'Bogdan Petriceicu Hașdeu'","loc":"BZ"},
+{"id":35,"name":"Rîpeanu I. Miruna ","level":"Elev de nivelul 4","unit":"Colegiul Național 'Bogdan Petriceicu Hașdeu'","loc":"BZ"},
+{"id":36,"name":"Bolog Matei","level":"Elev de nivelul 3","unit":"Liceul Teoretic 'Gheorghe Şincai'","loc":"CJ"},
+{"id":37,"name":"Cengher Alexandra","level":"Elev de nivelul 4","unit":"Liceul Teoretic  'Nicolae Bălcescu'","loc":"CJ"},
+{"id":38,"name":"Mitrea Marian Cristian","level":"Elev de nivelul 3","unit":"Liceul Teoretic 'Avram Iancu'","loc":"CJ"},
+{"id":39,"name":"Nemeș Bianca Laura","level":"Elev de nivelul 4","unit":"Liceul Teoretic  'Lucian Blaga'","loc":"CJ"},
+{"id":40,"name":"Podocea Cristina Maria","level":"Elev de nivelul 4","unit":"Liceul Teoretic 'Neagoe Basarab', Olteniţa","loc":"CL"},
+{"id":41,"name":"Radu Florentina Roxana","level":"Elev de nivelul 3","unit":"Colegiul Naţional 'Barbu Ştirbei', Călăraşi","loc":"CL"},
+{"id":42,"name":"Tuță Alexandra Ioana ","level":"Elev de nivelul 4","unit":"Colegiul Național 'Barbu Știrbei' Călărași","loc":"CL"},
+{"id":43,"name":"Maldea Lavinia","level":"Elev de nivelul 3","unit":"Colegiul Naţional 'Traian Lalescu' Reşiţa","loc":"CS"},
+{"id":44,"name":"Semenescu Raluca Andreea","level":"Elev de nivelul 4","unit":"Colegiul Naţional 'C.D. Loga' Caransebeş","loc":"CS"},
+{"id":45,"name":"Lopoșaru M. Ana – Maria ","level":"Elev de nivelul 4","unit":"Liceul Teoretic 'Traian'","loc":"CT"},
+{"id":46,"name":"Suță Emanuela","level":"Elev de nivelul 3","unit":"Colegiul Național 'Mircea Cel Bătrân'","loc":"CT"},
+{"id":47,"name":"Aldea G. Adriana","level":"Elev de nivelul 3","unit":"Liceul Teoretic 'Mircea Eliade', Întorsura Buzăului","loc":"CV"},
+{"id":48,"name":"Marin M. Mădălina","level":"Elev de nivelul 4","unit":"Liceul Teoretic 'Mircea Eliade', Întorsura Buzăului","loc":"CV"},
+{"id":49,"name":"Stan Roxana Elena","level":"Elev de nivelul 4","unit":"Colegiul Național Nicolae Titulescu, Pucioasa","loc":"DB"},
+{"id":50,"name":"Tăbleț Elena Diana","level":"Elev de nivelul 3","unit":"Colegiul Național Ienăchiță Văcărescu, Târgoviște","loc":"DB"},
+{"id":51,"name":"Ivan Roxana-Maria","level":"Elev de nivelul 4","unit":"Liceul Teoretic 'Constantin Brâncoveanu' Dăbuleni","loc":"DJ"},
+{"id":52,"name":"Matache Irina-Mihaela","level":"Elev de nivelul 3","unit":"Colegiul Național 'Frații Buzești' Craiova","loc":"DJ"},
+{"id":53,"name":"Scînteie Valentina Mihaela","level":"Elev de nivelul 3","unit":"Colegiul Naţional 'George Coşbuc' Motru","loc":"GJ"},
+{"id":54,"name":"Tănescu Hortensia","level":"Elev de nivelul 4","unit":"Colegiul Naţional'Spiru Haret', Tg-Jiu","loc":"GJ"},
+{"id":55,"name":"Cotos Ioana Ruxandra","level":"Elev de nivelul 4","unit":"Colegiul Național 'Vasile Alecsandri' Galați","loc":"GL"},
+{"id":56,"name":"Jipa Vlad","level":"Elev de nivelul 3","unit":"Colegiul Național 'Vasile Alecsandri' Galați","loc":"GL"},
+{"id":57,"name":"Ciulacu Bianca","level":"Elev de nivelul 3","unit":"Colegiul Național 'Ion Maiorescu', Giurgiu","loc":"GR"},
+{"id":58,"name":"Nicolae Cristina Andreea","level":"Elev de nivelul 4","unit":"Liceul Teoretic 'Tudor Vianu ', Giurgiu","loc":"GR"},
+{"id":59,"name":"Dubariu L.I. Diana Francesca","level":"Elev de nivelul 4","unit":"Colegiul Național 'Decebal' Deva","loc":"HD"},
+{"id":60,"name":"Iovănesc A. Luana Mihaela","level":"Elev de nivelul 3","unit":"Colegiul Național De Informatică 'Traian Lalescu' Hunedoara","loc":"HD"},
+{"id":61,"name":"Stan Andrei","level":"Elev de nivelul 4","unit":"Liceul Teoretic 'O.C.Tăslăuanu', Toplița","loc":"HR"},
+{"id":62,"name":"Vînagă Mădălina","level":"Elev de nivelul 3","unit":"Colegiul Național 'O.Goga', Miercurea-Ciuc","loc":"HR"},
+{"id":63,"name":"Gîfu Ioana","level":"Elev de nivelul 4","unit":"Liceul Teoretic 'Ioan Petruș', Otopeni","loc":"IF"},
+{"id":64,"name":"Popescu Ligia","level":"Elev de nivelul 4","unit":"Colegiul Național'Mihai Viteazul' Slobozia","loc":"IL"},
+{"id":65,"name":"Romaniuc Roxana Andreea","level":"Elev de nivelul 3","unit":"Colegiul Național'Mihai Viteazul' Slobozia","loc":"IL"},
+{"id":66,"name":"Caluschi Mara Ioana","level":"Elev de nivelul 4","unit":"Colegiul Național E.Racoviță Iași","loc":"IS"},
+{"id":67,"name":"Nourescu Oana","level":"Elev de nivelul 3","unit":"Colegiul Național Iași","loc":"IS"},
+{"id":68,"name":"Mitrache Iulia","level":"Elev de nivelul 3","unit":"Colegiul Național 'Traian', Drobeta Turnu Severin","loc":"MH"},
+{"id":69,"name":"Protopopescu Ruri","level":"Elev de nivelul 4","unit":"Colegiul Național 'Traian', Drobeta Turnu Severin","loc":"MH"},
+{"id":70,"name":"Bolos Cristina Diana","level":"Elev de nivelul 4","unit":"Colegiul Național Gheorghe Sincai Baia Mare","loc":"MM"},
+{"id":71,"name":"Gros Bianca","level":"Elev de nivelul 3","unit":"Colegiul Național Gheorghe Sincai Baia Mare","loc":"MM"},
+{"id":72,"name":"Grama Bianca Alexandra","level":"Elev de nivelul 3","unit":"Colegiul Naţional ' Alexandru Papiu Ilarian' Tg. Mureş","loc":"MS"},
+{"id":73,"name":"Romanţi  Ada Aniela","level":"Elev de nivelul 4","unit":"Colegiul Naţional ' Alexandru Papiu Ilarian' Tg. Mureş","loc":"MS"},
+{"id":74,"name":"Eva Andrada-Elena","level":"Elev de nivelul 4","unit":"Colegiul Național Roman Voda Roman","loc":"NT"},
+{"id":75,"name":"Pintilie Ioana","level":"Elev de nivelul 3","unit":"Colegiul Naţional Roman-Vodă Roman","loc":"NT"},
+{"id":76,"name":"Iancu N.V Diana-Valentina","level":"Elev de nivelul 3","unit":"Colegiul Național 'Radu Greceanu' Slatina","loc":"OT"},
+{"id":77,"name":"Vava T.Teia Andrada","level":"Elev de nivelul 4","unit":"Colegiul Național 'Ion Minulescu' Slatina","loc":"OT"},
+{"id":78,"name":"Bulai Teodora","level":"Elev de nivelul 4","unit":"Colegiul Naţional 'Jean Monnet', Ploiesti","loc":"PH"},
+{"id":79,"name":"Manolescu Diana Andreea","level":"Elev de nivelul 4","unit":"Colegiul Naţional ' Ion Luca Caragiale', Ploiesti","loc":"PH"},
+{"id":80,"name":"Marin Iulia","level":"Elev de nivelul 3","unit":"Colegiul Naţional 'Mihai Viteazul', Ploieşti","loc":"PH"},
+{"id":81,"name":"Frătean Denisa","level":"Elev de nivelul 3","unit":"Colegiul Național 'Octavian Goga' Sibiu","loc":"SB"},
+{"id":82,"name":"Luca Bogdan","level":"Elev de nivelul 4","unit":"Colegiul Național 'Gheorghe Lazăr' Sibiu","loc":"SB"},
+{"id":83,"name":"Bob Eliza Maria","level":"Elev de nivelul 3","unit":"Colegiul Naţional'Silvania' Zalău","loc":"SJ"},
+{"id":84,"name":"Nedelcu Diana","level":"Elev de nivelul 4","unit":"Colegiul Naţional'Silvania' Zalău","loc":"SJ"},
+{"id":85,"name":"Petre Cristiana","level":"Elev de nivelul 4","unit":"Colegiul Naţional'Silvania' Zalău","loc":"SJ"},
+{"id":86,"name":"Botiş V. Bogdan Vasile","level":"Elev de nivelul 3","unit":"Colegiul Național 'Mihai Eminescu' Satu Mare","loc":"SM"},
+{"id":87,"name":"Feher Alina Ruxandra","level":"Elev de nivelul 4","unit":"Liceul Teoretic Negresti Oas","loc":"SM"},
+{"id":88,"name":"Covaliu T. Georgiana","level":"Elev de nivelul 3","unit":"Colegiul 'Alexandru Cel Bun' Gura Humorului","loc":"SV"},
+{"id":89,"name":"Petrovici D.N. Daniela","level":"Elev de nivelul 4","unit":"Colegiul Național 'Petru Rareș' Suceava","loc":"SV"},
+{"id":90,"name":"Popescu S. Irina Elena","level":"Elev de nivelul 3","unit":"Colegiul Național 'Petru Rareș' Suceava","loc":"SV"},
+{"id":91,"name":"Morozov Victor","level":"Elev de nivelul 4","unit":"Colegiul Dobrogean 'Spiru Haret'Tulcea","loc":"TL"},
+{"id":92,"name":"Radu Iuliana-Alexandra","level":"Elev de nivelul 3","unit":"Liceul Teoretic 'Grigore Moisil'Moisil","loc":"TL"},
+{"id":93,"name":"Arimia Vlad Ion","level":"Elev de nivelul 4","unit":"Colegiul Naţional 'Diaconovici Loga' Timișoara","loc":"TM"},
+{"id":94,"name":"Stroe Silvia Elena","level":"Elev de nivelul 3","unit":"Liceul Teoretic 'Nikolaus Lenau' Timișoara","loc":"TM"},
+{"id":95,"name":"Alexe N.A.  Ioana Gabriela","level":"Elev de nivelul 4","unit":"Colegiul Național  'Unirea' Turnu Măgurele","loc":"TR"},
+{"id":96,"name":"Oprea C. Cătălina Gabriela","level":"Elev de nivelul 3","unit":"Colegiul Național 'Unirea' Turnu Măgurele","loc":"TR"},
+{"id":97,"name":"Cismaru Croce Giulia","level":"Elev de nivelul 4","unit":"Colegiul Național 'Mircea Cel Bătrân', Rm.-Vâlcea","loc":"VL"},
+{"id":98,"name":"Tăbîrcă Natalia","level":"Elev de nivelul 3","unit":"Colegiul Național De Informatică 'Matei Basarab', Rm.-Vâlcea","loc":"VL"},
+{"id":99,"name":"Mocanca Elena Alexandra","level":"Elev de nivelul 3","unit":"Colegiul Naţional Unirea","loc":"VN"},
+{"id":100,"name":"Rău Nicoleta-Daniela","level":"Elev de nivelul 4","unit":"Colegiul Economic 'Mihail Kogălniceanu'","loc":"VN"},
+{"id":101,"name":"Mardare  Gh. Ioana-Andreea","level":"Elev de nivelul 4","unit":"Liceul Tehnologic 'Nicolea Iorga' Vaslui","loc":"VS"},
+{"id":102,"name":"Popa I. Raluca- Laura","level":"Elev de nivelul 3","unit":"Liceul Teoretic 'Mihail Kogălniceanu' Vaslui","loc":"VS"}]
+});
+  </script>
+
+    <script type-"text/javascript">
+        
+       function mylinkfunction(e) {
+
+      $("html, body").animate({ scrollTop: $('').offset().top }, 1000);
+       e.preventDefault();
+       e.stopPropagation(); 
+
+       }
+
+     </script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/mdb.js"></script>
+</div>
+<footer>
+      Dezvoltator Web:
+      Ioan Siran 2016 CNGB Cluj-Napoca.
+            Email: <a href="mailto:whitehood15@gmail.com">whitehood15@gmail.com</a>
+
+    </footer></body>
+</html>
